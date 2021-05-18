@@ -41,22 +41,22 @@ class HomeProvider extends ChangeNotifier {
 
   void onStart() {
     status = LoadingStatus.processing;
-    // downloadingService.startDownload();
+    downloadingService.startDownload();
 
-    // steam = downloadingService.testRequest().listen((event) {
-    //   if (event == 100) onStop();
+    steam = downloadingService.testRequest().listen((event) {
+      if (event == 100) onStop();
 
-    //   loadingPercentage = event;
-    //   notifyListeners();
-    // });
+      loadingPercentage = event;
+      notifyListeners();
+    });
   }
 
   void onStop() {
     status = LoadingStatus.ready;
-    // loadingPercentage = 0;
+    loadingPercentage = 0;
 
-    // steam.cancel();
-    // downloadingService.stopDownload();
+    steam.cancel();
+    downloadingService.stopDownload();
   }
 
   void onPause() {

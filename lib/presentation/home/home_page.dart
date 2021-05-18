@@ -28,7 +28,6 @@ class HomePage extends StatelessWidget {
                   : _ActiveView(
                       status: provider.textStatus,
                       loadingPercentage: provider.loadingPercentage,
-                      onStop: provider.onStop,
                     ),
             ),
           ),

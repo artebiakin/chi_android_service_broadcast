@@ -16,20 +16,4 @@ class DownloadingServiceImpl extends DownloadingService {
   Future<void> startDownload() {
     return _platform.invokeMethod('startDownload');
   }
-
-  @override
-  Future<void> stopDownload() {
-    return _platform.invokeMethod('stopDownload');
-  }
-  // int testValue = 0;
-
-  // try {
-  //   final int result = await _platform.invokeMethod('testRequest');
-  //   testValue = result;
-  // } on PlatformException catch (_) {
-  //   throw 'Exception';
-  // }
-
-  // return testValue;
-
 }

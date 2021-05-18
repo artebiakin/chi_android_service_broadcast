@@ -5,10 +5,8 @@ class _ActiveView extends StatelessWidget {
     Key? key,
     required this.loadingPercentage,
     required this.status,
-    required this.onStop,
   }) : super(key: key);
 
-  final VoidCallback onStop;
   final int loadingPercentage;
   final String status;
 
@@ -37,16 +35,6 @@ class _ActiveView extends StatelessWidget {
               const Text('Status:'),
               Text(status),
             ],
-          ),
-          const SizedBox(height: 20),
-          Center(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Colors.black54,
-              ),
-              onPressed: onStop,
-              child: const Text('Stop'),
-            ),
           ),
         ],
       ),

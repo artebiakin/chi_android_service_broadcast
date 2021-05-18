@@ -40,6 +40,7 @@ class HomeProvider extends ChangeNotifier {
   final DownloadingService downloadingService = sl<DownloadingService>();
 
   void onStart() {
+    loadingPercentage = 0;
     status = LoadingStatus.processing;
     downloadingService.startDownload();
 
@@ -51,12 +52,10 @@ class HomeProvider extends ChangeNotifier {
     });
   }
 
-  void onStop() {
+  void onStop() async {
     status = LoadingStatus.ready;
+    await steam.cancel();
     loadingPercentage = 0;
-
-    steam.cancel();
-    downloadingService.stopDownload();
   }
 
   void onPause() {
